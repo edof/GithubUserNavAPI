@@ -1,0 +1,79 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GithubUserNavAPI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Github" parent="Theme.Material3.Light">
+        <item name="elevationOverlayColor">@color/md_theme_light_surfaceTint</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+    </style>
+
+    <style name="Theme.Edo" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Original AppCompat attributes. -->
+        <item name="colorPrimary">@color/my_app_primary_dark</item>
+        <item name="colorPrimaryDark">@color/my_app_primary</item>
+        <item name="colorSecondary">@color/my_app_secondary</item>
+        <item name="android:colorBackground">@color/my_app_background</item>
+        <item name="colorError">@color/my_app_error</item>
+
+        <!-- MaterialComponents attributes (needed if parent="Theme.AppCompat"). -->
+        <item name="colorPrimaryVariant">@color/my_app_primary_variant</item>
+        <item name="colorSecondaryVariant">@color/my_app_secondary_variant</item>
+        <item name="colorSurface">@color/my_app_surface</item>
+        <item name="colorOnPrimary">@color/my_app_on_primary</item>
+        <item name="colorOnSecondary">@color/my_app_on_secondary</item>
+        <item name="colorOnBackground">@color/my_app_on_background</item>
+        <item name="colorOnError">@color/my_app_on_error</item>
+        <item name="colorOnSurface">@color/my_app_on_surface</item>
+        <item name="scrimBackground">@color/mtrl_scrim</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
+    </style>
+</resources>

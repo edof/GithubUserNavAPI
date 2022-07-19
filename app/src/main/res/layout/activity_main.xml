@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <!-- Adding 15 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+
+            <include layout="@layout/item_row_shimmer" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/item_row_github">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_notfound"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="@string/username_tidak_ditemukan"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+
+</LinearLayout>
