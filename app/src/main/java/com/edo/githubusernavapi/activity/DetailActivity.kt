@@ -1,13 +1,22 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.activity
 
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.edo.githubusernavapi.*
+import com.edo.githubusernavapi.adapter.ViewPagerAdapter
 import com.edo.githubusernavapi.databinding.ActivityDetailBinding
+import com.edo.githubusernavapi.git.GitConfig
+import com.edo.githubusernavapi.viewmodel.DetailViewModel
 import com.facebook.shimmer.ShimmerFrameLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,6 +31,9 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private lateinit var user: GitResponse
     private lateinit var shimmerViewContainer: ShimmerFrameLayout
+    private val viewModel by viewModels<DetailViewModel> {
+        DetailViewModel.Factory(DBModule(this))
+    }
     var totFollowers = 0
     var totFollowing = 0
 
@@ -30,7 +42,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.myToolbar)
-        user = intent.getSerializableExtra(EXTRA_USER) as GitResponse
+        user = intent.getParcelableExtra<GitResponse>(EXTRA_USER) as GitResponse
+//        user = intent.getParcelableExtra<GitResponse>("item")
         val uname = user.login
         supportActionBar?.apply {
             title = "@$uname"
@@ -39,6 +52,23 @@ class DetailActivity : AppCompatActivity() {
         }
         shimmerViewContainer = binding.shimmerViewContainer
         getDetail(uname)
+
+        viewModel.resultOkFav.observe(this){
+            binding.btnFav.changeIconColor(R.color.seed)
+            Snackbar.make(binding.root, "Berhasil tambah Favorit!", Snackbar.LENGTH_SHORT).show()
+        }
+        viewModel.resultDelFav.observe(this){
+            binding.btnFav.changeIconColor(R.color.black)
+            Snackbar.make(binding.root, "Berhasil hapus Favorit!", Snackbar.LENGTH_SHORT).show()
+        }
+
+        binding.btnFav.setOnClickListener {
+            viewModel.setFav(user)
+        }
+
+        viewModel.checkFav(user.id){
+            binding.btnFav.changeIconColor(R.color.seed)
+        }
     }
 
     private fun getDetail(uname: String) {
@@ -54,6 +84,7 @@ class DetailActivity : AppCompatActivity() {
                             avaDetail.visibility = View.VISIBLE
                             unameDetail.visibility = View.VISIBLE
                             nameDetail.visibility = View.VISIBLE
+                            btnFav.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -87,6 +118,10 @@ class DetailActivity : AppCompatActivity() {
                 .circleCrop()
                 .into(avaDetail)
         }
+    }
+
+    fun FloatingActionButton.changeIconColor(@ColorRes color: Int){
+        imageTintList = ColorStateList.valueOf(ContextCompat.getColor(this.context, color))
     }
 
     public override fun onResume() {

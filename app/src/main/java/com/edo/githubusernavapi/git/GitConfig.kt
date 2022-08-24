@@ -1,4 +1,4 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.git
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

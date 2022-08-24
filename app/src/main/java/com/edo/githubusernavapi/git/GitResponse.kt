@@ -1,6 +1,11 @@
 package com.edo.githubusernavapi
 
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
 data class Result(
@@ -14,42 +19,20 @@ data class Result(
     @field:SerializedName("items")
     val items: List<GitResponse>
 )
-
+@Parcelize
+@Entity(tableName = "user")
 data class GitResponse (
-
+    @ColumnInfo(name = "avatar_url")
     @field:SerializedName("avatar_url")
     val avatarUrl: String,
-
-    @field:SerializedName("repos_url")
-    val reposUrl: String,
-
-    @field:SerializedName("html_url")
-    val htmlUrl: String,
-
-    @field:SerializedName("following_url")
-    val followingUrl: String,
-
+    @PrimaryKey
     @field:SerializedName("id")
     val id: Int,
-
+    @ColumnInfo(name = "login")
     @field:SerializedName("login")
     val login: String,
 
-    @field:SerializedName("followers_url")
-    val followersUrl: String,
-
-    @field:SerializedName("type")
-    val type: String,
-
-    @field:SerializedName("gravatar_id")
-    val gravatarId: String,
-
-    @field:SerializedName("url")
-    val url: String,
-
-    @field:SerializedName("node_id")
-    val nodeId: String
-) : Serializable
+) : Parcelable
 
 data class DetailUsers (
     val login: String,

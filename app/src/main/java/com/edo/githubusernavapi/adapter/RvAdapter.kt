@@ -1,14 +1,14 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.edo.githubusernavapi.GitResponse
+import com.edo.githubusernavapi.R
 import com.edo.githubusernavapi.databinding.ItemRowGithubBinding
-import java.net.URL
 
 class RvAdapter(private val datas: MutableList<GitResponse>, val ctx: Context) :
     RecyclerView.Adapter<RvAdapter.MyViewHolder>() {

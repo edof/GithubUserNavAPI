@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.edo.githubusernavapi.databinding.FragmentFollowersBinding
+import com.edo.githubusernavapi.adapter.RvFollowingAdapter
 import com.edo.githubusernavapi.databinding.FragmentFollowingBinding
+import com.edo.githubusernavapi.git.GitConfig
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call

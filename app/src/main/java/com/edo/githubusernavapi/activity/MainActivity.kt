@@ -1,18 +1,23 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.activity
 
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.EXTRA_USER
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.edo.githubusernavapi.*
+import com.edo.githubusernavapi.adapter.RvAdapter
 import com.edo.githubusernavapi.databinding.ActivityMainBinding
+import com.edo.githubusernavapi.git.GitConfig
+import com.edo.githubusernavapi.viewmodel.MainViewModel
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
@@ -23,11 +28,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: RvAdapter
     private lateinit var shimmerViewContainer: ShimmerFrameLayout
+    private val viewModel by viewModels<MainViewModel> {
+        MainViewModel.Factory(Preferences(this))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.getMode().observe(this){
+            if (it) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
         setSupportActionBar(binding.myToolbar)
         shimmerViewContainer = binding.shimmerViewContainer
 
@@ -76,8 +93,24 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        return when (id) {
+            R.id.menu_fav -> {
+                val intent = Intent(this, FavoriteActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_setting -> {
+                val intent = Intent(this, SettingActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun showClick(data: GitResponse) {
-//        Toast.makeText(this, "Kamu memilih " + data.login, Toast.LENGTH_SHORT).show()
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_USER, data)
         startActivity(intent)

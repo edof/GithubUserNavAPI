@@ -1,5 +1,9 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.git
 
+import com.edo.githubusernavapi.DetailFollowers
+import com.edo.githubusernavapi.DetailFollowing
+import com.edo.githubusernavapi.DetailUsers
+import com.edo.githubusernavapi.Result
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

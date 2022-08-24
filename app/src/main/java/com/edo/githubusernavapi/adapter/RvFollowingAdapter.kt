@@ -1,4 +1,4 @@
-package com.edo.githubusernavapi
+package com.edo.githubusernavapi.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.edo.githubusernavapi.DetailFollowing
+import com.edo.githubusernavapi.R
 import com.edo.githubusernavapi.databinding.ItemRowGithubBinding
 
-class RvFollowersAdapter(private val datas: MutableList<DetailFollowers>, val ctx: Context) :
-    RecyclerView.Adapter<RvFollowersAdapter.MyViewHolder>() {
+class RvFollowingAdapter(private val datas: MutableList<DetailFollowing>, val ctx: Context) :
+    RecyclerView.Adapter<RvFollowingAdapter.MyViewHolder>() {
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemRowGithubBinding.bind(view)
@@ -36,7 +38,7 @@ class RvFollowersAdapter(private val datas: MutableList<DetailFollowers>, val ct
 
     override fun getItemCount(): Int = datas.size
 
-    fun setData(data: List<DetailFollowers>) {
+    fun setData(data: List<DetailFollowing>) {
         datas.clear()
         datas.addAll(data)
         notifyDataSetChanged()

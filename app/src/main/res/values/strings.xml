@@ -11,5 +11,10 @@
     <string name="username_tidak_ditemukan">Username tidak ditemukan.</string>
     <string name="no_followers">Tidak diikuti siapapun.</string>
     <string name="no_following">Tidak mengikuti siapapun.</string>
+    <!-- Preference Titles -->
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_def_value">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="favorite">Favorite</string>
 
 </resources>
